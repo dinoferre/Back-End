@@ -93,3 +93,5 @@
 		</plugins>
 	</build>
 </project>
+
+<!-- Este es un archivo pom.xml para un proyecto de Spring Boot. Incluye dependencias como Spring Boot Starter Data JPA, Spring Boot Starter Validation, Spring Boot Starter Web, Spring Boot Starter Security, entre otros. También incluye configuraciones para el plugin de Spring Boot y el plugin de Surefire para evitar errores. -->
