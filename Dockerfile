@@ -1,5 +1,5 @@
-FROM amazoncorretto:8-alpine-jdk
+FROM amazoncorretto:17
 
-COPY target/backend_dinoferre.jar app.jar
+COPY target/backend_dinoferre.jar backend_dinoferre.jar
 
-ENTRYPOINT ["java","-jar","/app.jar"]
+ENTRYPOINT ["java","-jar","/backend_dinoferre.jar"]
