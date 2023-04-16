@@ -26,17 +26,10 @@ Utilizando los siguientes parámetros de configuración:
 
 Generé diferentes paquetes para estructurar el proyecto en el back-end. 
 Los paquetes son los siguientes:
-<<<<<<< HEAD
-.Entity: Aquí encuentran las clases de entidades que representan las tablas de la base de datos.
-.Repository: Aquí se encuentran las interfaces que extienden de JPA y sus métodos para realizar operaciones en la base de datos. 
-.Interface: Aquí se encuentran las interfaces que definen los métodos que serán implementados en las clases de servicio.
-.Service: Aquí se encuentran las clases de servicio que implementan los métodos definidos en las interfaces.
-.Controller: Aquí se encuentran las clases de controlador que se comunican con el front-end y los métodos que manejan las peticiones HTTP.    
-=======
 
 - `Entity`: Aquí encuentran las clases de entidades que representan las tablas de la base de datos.
 - `Repository`: Aquí se encuentran las interfaces que extienden de JPA y sus métodos para realizar operaciones en la base de datos. 
 - `Interface`: Aquí se encuentran las interfaces que definen los métodos que serán implementados en las clases de servicio.
 - `Service`: Aquí se encuentran las clases de servicio que implementan los métodos definidos en las interfaces.
 - `Controller`: Aquí se encuentran las clases de controlador que se comunican con el front-end y los métodos que manejan las peticiones HTTP.  
->>>>>>> a41bf9d0f5f2afc474d288f1345414bf64e7d8e1
+
