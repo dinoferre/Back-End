@@ -31,4 +31,4 @@ Los paquetes son los siguientes:
 - `Repository`: Aquí se encuentran las interfaces que extienden de JPA y sus métodos para realizar operaciones en la base de datos. 
 - `Interface`: Aquí se encuentran las interfaces que definen los métodos que serán implementados en las clases de servicio.
 - `Service`: Aquí se encuentran las clases de servicio que implementan los métodos definidos en las interfaces.
-- `Controller`: Aquí se encuentran las clases de controlador que se comunican con el front-end y los métodos que manejan las peticiones HTTP. 
+- `Controller`: Aquí se encuentran las clases de controlador que se comunican con el front-end y los métodos que manejan las peticiones HTTP.
