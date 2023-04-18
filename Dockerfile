@@ -1,4 +1,4 @@
-FROM amazoncorretto:8-alpine-jdk
+FROM amazoncorretto:17-alpine-jdk
 
 COPY target/backend_dinoferre.jar backend_dinoferre.jar
 
