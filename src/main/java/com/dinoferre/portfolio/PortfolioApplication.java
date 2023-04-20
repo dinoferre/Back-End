@@ -11,3 +11,6 @@ public class PortfolioApplication {
 	}
 
 }
+
+//La clase PortfolioApplication es una aplicación Spring Boot, 
+//y el método main() utiliza SpringApplication.run() para iniciar la aplicación.

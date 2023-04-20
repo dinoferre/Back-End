@@ -4,18 +4,20 @@ import java.util.List;
 
 import com.dinoferre.portfolio.Entity.PersonaEntity;
 
+// La interfaz IPersonaService define un conjunto de métodos que deben ser implementados 
+// para realizar operaciones en la entidad PersonaEntity.
 public interface IPersonaService {
 	
-	//Metodo para traer todas las personas
+	// getPersona(): un método que devuelve una lista de todas las personas
 	public List<PersonaEntity> getPersona();
 	
-	//Metodo para dar de alta una persona
+	// savePersona(PersonaEntity perso): un método que se utiliza para guardar una nueva persona
 	public void savePersona(PersonaEntity perso);
 	
-	//Metodo para Borrar una persona
+	// deletePersona(Long id): un método que se utiliza para eliminar una persona existente
 	public void deletePersona(Long id);
 	
-	//Metodo para Encontrar una persona
+	// findPersona(Long id): un método que se utiliza para buscar y obtener información de una persona
 	public PersonaEntity findPersona(Long id);
 
 }
