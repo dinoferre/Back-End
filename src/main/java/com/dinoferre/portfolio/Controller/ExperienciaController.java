@@ -1,3 +1,22 @@
+/**
+ * Este código define un controlador de Spring MVC utilizando la anotación @RestController, 
+ * que indica que esta clase es un controlador y que las respuestas HTTP generadas serán mapeadas directamente 
+ * al cuerpo de la respuesta en lugar de a una vista. También utiliza la anotación @RequestMapping para definir 
+ * una ruta base para todas las solicitudes que maneja.
+ * 
+ * El controlador maneja solicitudes HTTP para manejar la creación, actualización, eliminación y recuperación 
+ * de experiencias laborales a través de las rutas /explaboral/crear, /explaboral/update/{id}, 
+ * /explaboral/delete/{id}, /explaboral/lista y /explaboral/detail/{id}. 
+ * La anotación @CrossOrigin se utiliza para permitir solicitudes desde el origen http://localhost:4200.
+ * 
+ * El controlador utiliza la clase ExperienciaService para realizar operaciones de base de datos, como guardar, 
+ * actualizar, eliminar y buscar experiencias laborales. Los datos se pasan al controlador como objetos JSON 
+ * utilizando la anotación @RequestBody. El controlador también utiliza la clase Mensaje para devolver mensajes 
+ * de error o éxito al cliente. * 
+ * 
+ * @author Dino Ferré
+ **/
+
 package com.dinoferre.portfolio.Controller;
 
 import java.util.List;
@@ -22,27 +41,20 @@ import com.dinoferre.portfolio.Entity.ExperienciaEntity;
 import com.dinoferre.portfolio.Security.Controller.Mensaje;
 import com.dinoferre.portfolio.Service.ExperienciaService;
 
-// Esta clase es un controlador REST que manejará solicitudes HTTP relacionadas con la experiencia laboral 
-// y permitirá solicitudes desde el dominio http://localhost:4200.
 @RestController
 @RequestMapping("/explaboral")
 @CrossOrigin(origins = "http://localhost:4200")
 public class ExperienciaController {
 
-	// Se está inyectando una instancia de la clase ExperienciaService en el
-	// controlador ExperienciaController
-	// mediante la anotación @Autowired.
 	@Autowired
 	ExperienciaService experienciaService;
 
-	// Traer experiencia
 	@GetMapping("/lista")
 	public ResponseEntity<List<?>> list() {
 		List<ExperienciaEntity> list = experienciaService.list();
 		return new ResponseEntity<List<?>>(list, HttpStatus.OK);
 	}
 
-	// Detalle de una experiencia por id
 	@GetMapping("/detail/{id}")
 	public ResponseEntity<ExperienciaEntity> getById(@PathVariable("id") int id) {
 		if (!experienciaService.existsById(id))
@@ -51,7 +63,6 @@ public class ExperienciaController {
 		return new ResponseEntity(experiencia, HttpStatus.OK);
 	}
 
-	// Crear una experiencia
 	@PostMapping("/crear")
 	public ResponseEntity<?> create(@RequestBody ExperienciaDTO experienciaDTO) {
 		if (StringUtils.isBlank(experienciaDTO.getNombreE()))
@@ -66,7 +77,6 @@ public class ExperienciaController {
 		return new ResponseEntity(new Mensaje("Experiencia agregada"), HttpStatus.OK);
 	}
 
-	// Actualizar experiencia
 	@PutMapping("/update/{id}")
 	public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody ExperienciaDTO experienciaDTO) {
 		ExperienciaEntity experienciaEntity = experienciaService.findById(id)
@@ -86,7 +96,6 @@ public class ExperienciaController {
 		return new ResponseEntity<>(new Mensaje("Experiencia actualizada"), HttpStatus.OK);
 	}
 
-	// Borrar una experiencia
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<?> delete(@PathVariable("id") int id) {
 		if (!experienciaService.existsById(id)) {

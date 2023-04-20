@@ -1,3 +1,11 @@
+/**
+ * La clase Educacion es una entidad de JPA que se utiliza para representar una tabla en la base de datos.
+ * Tiene cuatro atributos: id, nombreE, descripcionE y un constructor vacío y otro con parámetros para
+ * inicializar los atributos. Además, tiene los getters y setters para los atributos mencionados.
+ * 
+ * @author Dino Ferré
+ **/
+
 package com.dinoferre.portfolio.Entity;
 
 import jakarta.persistence.Entity;
@@ -46,7 +54,3 @@ public class Educacion {
 	}
 
 }
-
-// La clase Educacion es una entidad de JPA que se utiliza para representar una tabla en la base de datos. 
-// Tiene cuatro atributos: id, nombreE, descripcionE y un constructor vacío y otro con parámetros para 
-// inicializar los atributos. Además, tiene los getters y setters para los atributos mencionados.

@@ -1,3 +1,11 @@
+/**
+ * El código que se resume es una clase anotada con @Entity llamada ExperienciaEntity, 
+ * la cual tiene los siguientes atributos: id (tipo entero), nombreE (tipo String) y descripcionE (tipo String). 
+ * También tiene un constructor vacío y otro con parámetros, así como los getters/setters.
+ *
+ * @author Dino Ferré
+ **/
+
 package com.dinoferre.portfolio.Entity;
 
 import jakarta.persistence.Entity;
@@ -46,7 +54,3 @@ public class ExperienciaEntity {
 	}
 
 }
-
-// El código que se resume es una clase anotada con @Entity llamada ExperienciaEntity, 
-// la cual tiene los siguientes atributos: id (tipo entero), nombreE (tipo String) y descripcionE (tipo String). 
-// También tiene un constructor vacío y otro con parámetros, así como los getters/setters.

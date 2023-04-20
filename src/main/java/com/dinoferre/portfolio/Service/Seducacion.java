@@ -1,4 +1,15 @@
+/**
+ * La clase Seducacion es un componente de servicio de Spring que se utiliza para implementar la lógica de 
+ * negocio relacionada con las entidades de educación y utiliza una única transacción de base de datos para 
+ * todas las operaciones de base de datos realizadas dentro de los métodos de la clase. La clase define varios 
+ * métodos para interactuar con las entidades de educación almacenadas en la base de datos y utiliza la 
+ * instancia de REducacion inyectada mediante @Autowired.
+ * 
+ * @author Dino Ferré
+ **/
+
 package com.dinoferre.portfolio.Service;
+
 import com.dinoferre.portfolio.Entity.Educacion;
 
 import java.util.List;
@@ -45,9 +56,3 @@ public class Seducacion {
         return rEducacion.existsByNombreE(nombreE);
     }
 }
-
-// La clase Seducacion es un componente de servicio de Spring que se utiliza para implementar la lógica de negocio 
-// relacionada con las entidades de educación y utiliza una única transacción de base de datos para todas las 
-// operaciones de base de datos realizadas dentro de los métodos de la clase. La clase define varios métodos para 
-// interactuar con las entidades de educación almacenadas en la base de datos y utiliza la instancia de REducacion 
-// inyectada mediante @Autowired.

@@ -1,3 +1,13 @@
+/**
+ * Esta es la definición de una clase llamada "dtoEducacion", la cual tiene dos atributos de tipo String
+ * llamados "nombreE" y "descripcionE". La clase tiene dos constructores, uno vacío y otro que recibe
+ * como parámetros valores para ambos atributos. La clase también tiene dos métodos getter y setter
+ * para cada uno de los atributos. Además, la anotación "@NotBlank" indica que los atributos no pueden
+ * estar en blanco o nulos.
+ * 
+ * @author Dino Ferré
+ **/
+
 package com.dinoferre.portfolio.DTO;
 
 import jakarta.validation.constraints.NotBlank;
@@ -33,9 +43,3 @@ public class dtoEducacion {
 	}
 
 }
-
-// Esta es la definición de una clase llamada "dtoEducacion", la cual tiene dos atributos de tipo String 
-// llamados "nombreE" y "descripcionE". La clase tiene dos constructores, uno vacío y otro que recibe 
-// como parámetros valores para ambos atributos. La clase también tiene dos métodos getter y setter 
-// para cada uno de los atributos. Además, la anotación "@NotBlank" indica que los atributos no pueden 
-// estar en blanco o nulos.

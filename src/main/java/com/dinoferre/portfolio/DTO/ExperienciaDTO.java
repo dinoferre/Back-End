@@ -1,3 +1,12 @@
+/**
+ * Este código define la clase ExperienciaDTO, la cual tiene dos atributos de tipo String
+ * llamados nombreE y descripcionE, ambos con la anotación @NotBlank para indicar que no pueden estar vacíos.
+ * También tiene dos constructores, uno vacío y otro que recibe ambos atributos como parámetros,
+ * y los respectivos getters y setters para cada atributo.
+ * 
+ * @author Dino Ferré
+ **/
+
 package com.dinoferre.portfolio.DTO;
 
 import jakarta.validation.constraints.NotBlank;
@@ -35,8 +44,3 @@ public class ExperienciaDTO {
 	}
 
 }
-
-// Este código define la clase ExperienciaDTO, la cual tiene dos atributos de tipo String 
-// llamados nombreE y descripcionE, ambos con la anotación @NotBlank para indicar que no pueden estar vacíos. 
-// También tiene dos constructores, uno vacío y otro que recibe ambos atributos como parámetros, 
-// y los respectivos getters y setters para cada atributo.

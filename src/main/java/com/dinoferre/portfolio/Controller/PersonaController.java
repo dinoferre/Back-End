@@ -1,3 +1,20 @@
+/**
+ * Este código define un controlador REST con la anotación @RestController. 
+ * También utiliza la anotación @CrossOrigin para permitir solicitudes desde un origen específico.
+ * 
+ * El controlador expone varios puntos finales HTTP para realizar operaciones CRUD en una entidad PersonaEntity. 
+ * Las operaciones incluyen obtener una lista de todas las personas, crear una nueva persona, 
+ * eliminar una persona existente y editar una persona existente.
+ * 
+ * El punto final @GetMapping("/personas/traer/perfil") se utiliza para obtener una sola entidad PersonaEntity 
+ * con ID 1, que se utiliza como perfil de usuario. Se utiliza la anotación @PreAuthorize para limitar el acceso 
+ * a las operaciones de eliminación y edición a los usuarios con el rol 'ADMIN'.
+ * 
+ * El controlador utiliza la interfaz IPersonaService para realizar las operaciones en la base de datos.
+ * 
+ * @author Dino Ferré
+ **/
+
 package com.dinoferre.portfolio.Controller;
 
 import java.util.List;
@@ -17,25 +34,18 @@ import org.springframework.web.bind.annotation.RestController;
 import com.dinoferre.portfolio.Entity.PersonaEntity;
 import com.dinoferre.portfolio.Interface.IPersonaService;
 
-//La clase PersonaController es un controlador REST que acepta solicitudes CORS desde http://localhost:4200.
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class PersonaController {
 
-	// Este código está utilizando la anotación @Autowired
-	// para inyectar una instancia de IPersonaService en la variable interPersona.
 	@Autowired
 	private IPersonaService interPersona;
 
-	// Este código define un método HTTP GET para la ruta "/personas/traer"
-	// que devuelve una lista de objetos PersonaEntity.
 	@GetMapping("/personas/traer")
 	public List<PersonaEntity> getPersona() {
 		return interPersona.getPersona();
 	}
 
-	// Este es un método POST que crea una nueva PersonaEntity y la guarda en la
-	// base de datos.
 	@PreAuthorize("hasRole('ADMIN')")
 	@PostMapping("/personas/crear")
 	public String createStudent(@RequestBody PersonaEntity perso) {
@@ -43,9 +53,6 @@ public class PersonaController {
 		return "La persona fue creada correctamente";
 	}
 
-	// Este código es un método que usa la anotación @DeleteMapping para manejar una
-	// solicitud HTTP DELETE
-	// para eliminar una persona de la base de datos.
 	@PreAuthorize("hasRole('ADMIN')")
 	@DeleteMapping("/personas/delete/{id}")
 	public String deletePersona(@PathVariable Long id) {
@@ -53,9 +60,6 @@ public class PersonaController {
 		return "La persona fue eliminada correctamente";
 	}
 
-	// Este código corresponde a un método que actualiza los datos de una persona
-	// existente en la base de datos,
-	// a través de una petición PUT.
 	@PreAuthorize("hasRole('ADMIN')")
 	@PutMapping("/personas/editar/{id}")
 	public PersonaEntity editPersona(@PathVariable Long id, @RequestParam("nombre") String nuevoNombre,
@@ -72,8 +76,6 @@ public class PersonaController {
 		return perso;
 	}
 
-	// Este método obtiene una persona específica por su ID y devuelve un objeto
-	// PersonaEntity.
 	@GetMapping("/personas/traer/perfil")
 	public PersonaEntity findPersona() {
 		return interPersona.findPersona((long) 1);

@@ -1,3 +1,10 @@
+/**
+ * La clase PortfolioApplication es una aplicación Spring Boot,
+ * y el método main() utiliza SpringApplication.run() para iniciar la aplicación.
+ * 
+ * @author Dino Ferré
+ **/
+
 package com.dinoferre.portfolio;
 
 import org.springframework.boot.SpringApplication;
@@ -11,6 +18,3 @@ public class PortfolioApplication {
 	}
 
 }
-
-//La clase PortfolioApplication es una aplicación Spring Boot, 
-//y el método main() utiliza SpringApplication.run() para iniciar la aplicación.

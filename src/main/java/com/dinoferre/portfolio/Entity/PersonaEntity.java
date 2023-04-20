@@ -1,3 +1,13 @@
+/**
+ * La clase PersonaEntity es una entidad JPA que representa una tabla de la base de datos. 
+ * Tiene los siguientes atributos: id, nombre, apellido e imagen, y los métodos getters/setters correspondientes.
+ * Además, cuenta con un constructor vacío y otro constructor que recibe los valores para los atributos. 
+ * La anotación @Id indica que el atributo id es la clave primaria de la tabla y la anotación @GeneratedValue 
+ * indica que su valor será generado automáticamente.
+ * 
+ * @author Dino Ferré
+ **/
+
 package com.dinoferre.portfolio.Entity;
 
 import jakarta.persistence.Entity;
@@ -59,9 +69,3 @@ public class PersonaEntity {
 	}
 
 }
-
-// La clase PersonaEntity es una entidad JPA que representa una tabla de la base de datos. 
-// Tiene los siguientes atributos: id, nombre, apellido e imagen, y los métodos getters/setters correspondientes.
-// Además, cuenta con un constructor vacío y otro constructor que recibe los valores para los atributos. 
-// La anotación @Id indica que el atributo id es la clave primaria de la tabla y la anotación @GeneratedValue 
-// indica que su valor será generado automáticamente.

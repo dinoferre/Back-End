@@ -1,3 +1,11 @@
+/**
+ * El código define una clase llamada ExperienciaService con anotaciones @Service y @Transactional. 
+ * La clase utiliza la interfaz IExperienciaRepository mediante la inyección de dependencias de Spring con la 
+ * anotación @Autowired.
+ * 
+ * @author Dino Ferré
+ **/
+
 package com.dinoferre.portfolio.Service;
 
 import java.util.List;
@@ -52,7 +60,3 @@ public class ExperienciaService {
 	}
 
 }
-
-// El código define una clase llamada ExperienciaService con anotaciones @Service y @Transactional. 
-// La clase utiliza la interfaz IExperienciaRepository mediante la inyección de dependencias de Spring con la 
-// anotación @Autowired.
