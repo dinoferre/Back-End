@@ -1,3 +1,19 @@
+/**
+ * El código es una clase llamada UsuarioPrincipal que implementa la interfaz UserDetails de 
+ * Spring Security. Esta clase tiene los siguientes campos: nombre, nombreUsuario, email, password y 
+ * authorities (que es una colección de objetos GrantedAuthority).
+ * 
+ * Tiene un constructor que acepta estos campos como parámetros y un método estático llamado build 
+ * que acepta un objeto Usuario como parámetro y devuelve un objeto UsuarioPrincipal con los campos 
+ * llenados a partir de los campos del objeto Usuario.
+ * 
+ * Además, la clase tiene varios métodos que implementan los métodos de la interfaz UserDetails, 
+ * como getUsername, getPassword, getAuthorities, isAccountNonExpired, isAccountNonLocked, 
+ * isCredentialsNonExpired y isEnabled.
+ * 
+ * @author Dino Ferré
+ **/
+
 package com.dinoferre.portfolio.Security.Entity;
 
 import java.util.Collection;

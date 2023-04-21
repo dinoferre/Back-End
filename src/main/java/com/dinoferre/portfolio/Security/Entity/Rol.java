@@ -1,3 +1,12 @@
+/**
+ * Esta clase representa un modelo de Rol con un id generado automáticamente y el nombre del rol 
+ * representado por un enumerado. La anotación "@Entity" indica que esta clase se puede almacenar 
+ * en una base de datos, y los métodos públicos permiten acceder y modificar los valores 
+ * de las variables de instancia.
+ * 
+ * @author Dino Ferré
+ **/
+
 package com.dinoferre.portfolio.Security.Entity;
 
 import com.dinoferre.portfolio.Security.Enums.RolNombre;
@@ -21,7 +30,6 @@ public class Rol {
 	@Enumerated(EnumType.STRING)
 	private RolNombre rolNombre;
 
-	// Constructor
 	public Rol() {
 	}
 
@@ -29,7 +37,6 @@ public class Rol {
 		this.rolNombre = rolNombre;
 	}
 
-	// Getter y Setter
 
 	public int getId() {
 		return id;

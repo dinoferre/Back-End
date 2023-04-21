@@ -1,3 +1,15 @@
+/**
+ * Este código es una clase de configuración de seguridad en una aplicación web basada en Spring. 
+ * Se habilita la seguridad web y la seguridad de métodos. Se crea un filtro personalizado para validar 
+ * tokens JWT y un objeto PasswordEncoder para codificar contraseñas. También se crea un objeto 
+ * AuthenticationManager para autenticar a los usuarios y se configura el SecurityFilterChain para 
+ * proteger la aplicación. Se deshabilita CSRF, se configura la creación de sesiones sin estado 
+ * y se define la política de autorización. En resumen, esta clase asegura la aplicación web Spring, 
+ * definiendo cómo se autentican y autorizan los usuarios y cómo se protegen los recursos.
+ * 
+ * @author Dino Ferré
+ **/
+
 package com.dinoferre.portfolio.Security;
 
 import org.springframework.beans.factory.annotation.Autowired;

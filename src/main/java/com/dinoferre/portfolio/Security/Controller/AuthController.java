@@ -1,3 +1,18 @@
+/**
+ * El código muestra un controlador Rest con dos endpoints, "/nuevo" y "/login", que reciben peticiones 
+ * HTTP POST.
+ * 
+ * En el endpoint "/nuevo", el método "nuevo" crea un nuevo usuario a partir de los datos proporcionados 
+ * en la petición y lo guarda en la base de datos. Antes de guardar el usuario, se comprueba si ya 
+ * existe un usuario con el mismo nombre de usuario o email. Si los datos proporcionados son incorrectos, 
+ * se devuelve un mensaje de error.
+ * 
+ * En el endpoint "/login", el método "login" valida las credenciales de usuario y devuelve un token JWT 
+ * si son correctas. Si las credenciales no son válidas, se devuelve un mensaje de error.
+ * 
+ * @author Dino Ferré
+ **/
+
 package com.dinoferre.portfolio.Security.Controller;
 
 import java.util.HashSet;

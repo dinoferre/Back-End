@@ -1,3 +1,15 @@
+/**
+ * El código define un componente llamado JwtEntryPoint que implementa la interfaz 
+ * AuthenticationEntryPoint. Esta clase se encarga de manejar la excepción de autenticación que se lanza 
+ * cuando se intenta acceder a un recurso no autorizado.
+ * 
+ * El método "commence" se encarga de manejar esta excepción y enviar una respuesta de error HTTP 401 
+ * (Unauthorized) al cliente. También registra un mensaje de error en el archivo de registro de la 
+ * aplicación indicando que ha fallado el método commence.
+ * 
+ * @author Dino Ferré
+ **/
+
 package com.dinoferre.portfolio.Security.Jwt;
 
 import java.io.IOException;

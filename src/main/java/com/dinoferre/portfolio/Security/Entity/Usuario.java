@@ -1,3 +1,13 @@
+/**
+ * Esta clase representa un modelo de usuario con un id generado automáticamente y los datos personales 
+ * del usuario. La anotación "@Entity" indica que esta clase se puede almacenar en una base de datos, 
+ * y los métodos públicos permiten acceder y modificar los valores de las variables de instancia. 
+ * La anotación "@ManyToMany" indica que un usuario puede tener varios roles y un rol puede ser asignado 
+ * a varios usuarios.
+ * 
+ * @author Dino Ferré
+ **/
+
 package com.dinoferre.portfolio.Security.Entity;
 
 import java.util.HashSet;

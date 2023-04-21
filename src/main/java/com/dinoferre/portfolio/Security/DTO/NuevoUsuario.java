@@ -1,3 +1,10 @@
+/**
+ * Esta clase representa un modelo de usuario con nombre, nombre de usuario, correo electrónico, 
+ * contraseña y roles. Los métodos públicos permiten acceder y modificar estos valores.
+ * 
+ * @author Dino Ferré
+ **/
+
 package com.dinoferre.portfolio.Security.DTO;
 
 import java.util.HashSet;

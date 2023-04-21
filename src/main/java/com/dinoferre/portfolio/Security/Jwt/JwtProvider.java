@@ -1,3 +1,29 @@
+/**
+ * Implementación de autenticación y autorización basada en JWT (JSON Web Tokens) para una aplicación web Java. 
+ * 
+ * Usuario: es una clase que representa un usuario en el sistema, y contiene información como su nombre, 
+ * nombre de usuario, correo electrónico, contraseña y roles asignados.
+ * 
+ * UsuarioPrincipal: es una clase que implementa la interfaz UserDetails de Spring Security, y representa el 
+ * principal de seguridad que se utiliza en la autenticación. Contiene información sobre el usuario, como su 
+ * nombre, nombre de usuario, correo electrónico, contraseña y roles asignados.
+ * 
+ * RolNombre: es una enumeración que contiene los nombres de los roles que se utilizan en el sistema, 
+ * como ROLE_ADMIN y ROLE_USER.
+ * 
+ * JwtEntryPoint: es una clase que implementa la interfaz AuthenticationEntryPoint de Spring Security, y se 
+ * utiliza para manejar los errores de autenticación. En este caso, simplemente devuelve un error 
+ * 401 (no autorizado) si ocurre algún error de autenticación.
+ * 
+ * JwtProvider: es una clase que se utiliza para generar y validar los tokens JWT. Contiene un método para 
+ * generar un token a partir de un objeto Authentication de Spring Security, un método para obtener el nombre 
+ * de usuario a partir de un token, y un método para validar un token. La firma del token se realiza utilizando 
+ * un secreto y el algoritmo HS512. Los valores del secreto y el tiempo de expiración del token se leen desde 
+ * un archivo de propiedades utilizando la anotación @Value.
+ * 
+ * @author Dino Ferré
+ **/
+
 package com.dinoferre.portfolio.Security.Jwt;
 
 import java.util.Date;

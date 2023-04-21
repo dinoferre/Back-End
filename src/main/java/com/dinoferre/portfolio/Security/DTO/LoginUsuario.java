@@ -1,3 +1,12 @@
+/**
+ * La clase LoginUsuario es un modelo que tiene dos atributos nombreUsuario y password, 
+ * ambos son cadenas de texto y están anotados con la anotación @NotBlank, lo que indica que no pueden 
+ * ser nulos ni vacíos. Esta clase se utiliza en el controlador para manejar la solicitud de 
+ * inicio de sesión.
+ * 
+ * @author Dino Ferré
+ **/
+
 package com.dinoferre.portfolio.Security.DTO;
 
 import jakarta.validation.constraints.NotBlank;

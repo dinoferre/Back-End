@@ -1,3 +1,22 @@
+/**
+ * Este código define una clase de servicio UsuarioService con anotaciones @Service y @Transactional. 
+ * La clase tiene una dependencia inyectada IUsuarioRepository y proporciona varios métodos para interactuar 
+ * con la base de datos.
+ * 
+ * El método getByNombreUsuario recupera un objeto Optional<Usuario> de la base de datos según el nombre de 
+ * usuario proporcionado.
+ * 
+ * El método existsByNombreUsuario comprueba si existe un usuario en la base de datos con el nombre de 
+ * usuario proporcionado y devuelve un valor booleano.
+ * 
+ * El método existsByEmail comprueba si existe un usuario en la base de datos con la dirección de correo 
+ * electrónico proporcionada y devuelve un valor booleano.
+ * 
+ * El método save guarda un objeto Usuario en la base de datos.
+ * 
+ * @author Dino Ferré
+ **/
+
 package com.dinoferre.portfolio.Security.Service;
 
 import java.util.Optional;

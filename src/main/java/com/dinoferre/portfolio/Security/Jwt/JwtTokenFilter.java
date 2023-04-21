@@ -1,3 +1,14 @@
+/**
+ * El código muestra la implementación de un filtro de tokens JWT para autenticación en una aplicación web. 
+ * El filtro se encarga de interceptar cada petición entrante y verificar si el token JWT está presente en el 
+ * encabezado de autorización y es válido. Si el token es válido, se recupera el nombre de usuario del token y 
+ * se carga la información del usuario en el contexto de seguridad de Spring utilizando el servicio 
+ * UserDetailsService. El filtro se implementa extendiendo la clase OncePerRequestFilter de Spring y anotando 
+ * la clase como @Component para que sea escaneada por el contenedor de Spring.
+ * 
+ * @author Dino Ferré
+ **/
+
 package com.dinoferre.portfolio.Security.Jwt;
 
 import java.io.IOException;

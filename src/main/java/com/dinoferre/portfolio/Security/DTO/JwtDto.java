@@ -1,3 +1,12 @@
+/**
+ * La clase JwtDto tiene cuatro atributos: token (un token de autenticación JWT), 
+ * bearer (un string con el valor "Bearer"), nombreUsuario (el nombre del usuario autenticado) 
+ * y authorities (una colección de objetos GrantedAuthority que representan los permisos del usuario). 
+ * La clase también tiene un constructor, getters y setters para los atributos.
+ * 
+ * @author Dino Ferré
+ **/
+
 package com.dinoferre.portfolio.Security.DTO;
 
 import java.util.Collection;
