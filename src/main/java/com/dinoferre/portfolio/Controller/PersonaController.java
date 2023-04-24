@@ -35,7 +35,7 @@ import com.dinoferre.portfolio.Entity.PersonaEntity;
 import com.dinoferre.portfolio.Interface.IPersonaService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"https://front-end-dino.web.app","http://localhost:4200"})
 public class PersonaController {
 
 	@Autowired

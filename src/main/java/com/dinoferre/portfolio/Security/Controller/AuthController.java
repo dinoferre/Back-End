@@ -48,7 +48,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"https://front-end-dino.web.app","http://localhost:4200"})
 public class AuthController {
 	
 	@Autowired

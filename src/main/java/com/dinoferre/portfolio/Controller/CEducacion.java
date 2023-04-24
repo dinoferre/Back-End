@@ -36,7 +36,7 @@ import com.dinoferre.portfolio.Service.Seducacion;
 
 @RestController
 @RequestMapping("/educacion")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"https://front-end-dino.web.app","http://localhost:4200"})
 public class CEducacion {
 
 	@Autowired
