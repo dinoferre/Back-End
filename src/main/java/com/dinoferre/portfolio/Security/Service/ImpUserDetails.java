@@ -28,7 +28,7 @@ import org.springframework.stereotype.Service;
 import com.dinoferre.portfolio.Security.Entity.Usuario;
 import com.dinoferre.portfolio.Security.Entity.UsuarioPrincipal;
 
-import jakarta.transaction.Transactional;
+import javax.transaction.Transactional;
 
 @Service
 @Transactional

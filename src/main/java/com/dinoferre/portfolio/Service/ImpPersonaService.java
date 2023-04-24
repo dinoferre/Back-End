@@ -20,7 +20,7 @@ import com.dinoferre.portfolio.Entity.PersonaEntity;
 import com.dinoferre.portfolio.Interface.IPersonaService;
 import com.dinoferre.portfolio.Repository.IPersonaRepository;
 
-import jakarta.transaction.Transactional;
+import javax.transaction.Transactional;
 
 @Service
 @Transactional

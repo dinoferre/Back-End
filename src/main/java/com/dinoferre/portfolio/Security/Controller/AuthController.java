@@ -27,7 +27,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -45,7 +44,7 @@ import com.dinoferre.portfolio.Security.Jwt.JwtProvider;
 import com.dinoferre.portfolio.Security.Service.RolService;
 import com.dinoferre.portfolio.Security.Service.UsuarioService;
 
-import jakarta.validation.Valid;
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/auth")

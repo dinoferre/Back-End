@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 import com.dinoferre.portfolio.Entity.ExperienciaEntity;
 import com.dinoferre.portfolio.Repository.IExperienciaRepository;
 
-import jakarta.transaction.Transactional;
+import javax.transaction.Transactional;
 
 @Service
 @Transactional

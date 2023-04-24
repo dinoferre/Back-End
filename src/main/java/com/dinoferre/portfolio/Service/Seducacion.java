@@ -20,7 +20,7 @@ import org.springframework.stereotype.Service;
 
 import com.dinoferre.portfolio.Repository.REducacion;
 
-import jakarta.transaction.Transactional;
+import javax.transaction.Transactional;
 
 @Service
 @Transactional

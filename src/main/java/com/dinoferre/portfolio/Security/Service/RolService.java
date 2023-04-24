@@ -23,7 +23,7 @@ import com.dinoferre.portfolio.Security.Entity.Rol;
 import com.dinoferre.portfolio.Security.Enums.RolNombre;
 import com.dinoferre.portfolio.Security.Repository.IRolRepository;
 
-import jakarta.transaction.Transactional;
+import javax.transaction.Transactional;
 
 @Service
 @Transactional
