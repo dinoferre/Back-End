@@ -2,7 +2,7 @@
 #El código copia el archivo target/portfolio-0.0.1-SNAPSHOT.jar y establece su 
 #entrada principal (ENTRYPOINT) como "java -jar /portfolio-0.0.1-SNAPSHOT.jar".
 
-FROM amazoncorretto:17-alpine-jdk
+FROM amazoncorretto:8
 
 COPY target/portfolio-0.0.1-SNAPSHOT.jar portfolio-0.0.1-SNAPSHOT.jar
 
