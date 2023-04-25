@@ -20,6 +20,7 @@
 package com.dinoferre.portfolio.Controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,16 +35,17 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.server.ResponseStatusException;
 
 import com.dinoferre.portfolio.DTO.ExperienciaDTO;
+import com.dinoferre.portfolio.DTO.dtoEducacion;
+import com.dinoferre.portfolio.Entity.Educacion;
 import com.dinoferre.portfolio.Entity.ExperienciaEntity;
 import com.dinoferre.portfolio.Security.Controller.Mensaje;
 import com.dinoferre.portfolio.Service.ExperienciaService;
 
 @RestController
 @RequestMapping("/explaboral")
-@CrossOrigin(origins = {"https://front-end-dino.web.app","http://localhost:4200"})
+@CrossOrigin(origins = { "https://front-end-dino.web.app", "http://localhost:4200" })
 public class ExperienciaController {
 
 	@Autowired
@@ -77,23 +79,28 @@ public class ExperienciaController {
 		return new ResponseEntity(new Mensaje("Experiencia agregada"), HttpStatus.OK);
 	}
 
+
 	@PutMapping("/update/{id}")
 	public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody ExperienciaDTO experienciaDTO) {
-		ExperienciaEntity experienciaEntity = experienciaService.findById(id)
-				.orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "El ID no existe"));
-
+		if (!experienciaService.existsById(id)) {
+			return new ResponseEntity(new Mensaje("No existe el ID"), HttpStatus.NOT_FOUND);
+		}
 		if (experienciaService.existsByNombreE(experienciaDTO.getNombreE())
-				&& experienciaService.getByNombreE(experienciaDTO.getNombreE()).get().getId() != id)
-			return ResponseEntity.badRequest().body(new Mensaje("Esa experiencia ya existe"));
+				&& experienciaService.getByNombreE(experienciaDTO.getNombreE()).get().getId() != id) {
+			return new ResponseEntity(new Mensaje("Ese nombre ya existe"), HttpStatus.BAD_REQUEST);
+		}
+		if (StringUtils.isBlank(experienciaDTO.getNombreE())) {
+			return new ResponseEntity(new Mensaje("El campo no puede estar vacio"), HttpStatus.BAD_REQUEST);
+		}
 
-		if (StringUtils.isBlank(experienciaDTO.getNombreE()))
-			return ResponseEntity.badRequest().body(new Mensaje("El nombre es obligatorio"));
+		ExperienciaEntity experienciaEntity = experienciaService.getOne(id).get();
 
 		experienciaEntity.setNombreE(experienciaDTO.getNombreE());
-		experienciaEntity.setDescripcionE((experienciaDTO.getDescripcionE()));
+		experienciaEntity.setDescripcionE(experienciaDTO.getDescripcionE());
 
 		experienciaService.save(experienciaEntity);
-		return new ResponseEntity<>(new Mensaje("Experiencia actualizada"), HttpStatus.OK);
+
+		return new ResponseEntity(new Mensaje("Experiencia actualizada"), HttpStatus.OK);
 	}
 
 	@DeleteMapping("/delete/{id}")
