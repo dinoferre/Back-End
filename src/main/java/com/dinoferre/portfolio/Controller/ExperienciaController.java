@@ -65,7 +65,7 @@ public class ExperienciaController {
 	}	
 		
 	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<?> delete(@PathVariable("id") int id) {
+	public ResponseEntity<?> delete(@PathVariable("id") Integer id) {
 		if (!experienciaService.existsById(id)) {
 			return new ResponseEntity(new Mensaje("No existe el ID"), HttpStatus.NOT_FOUND);
 		}
@@ -91,7 +91,7 @@ public class ExperienciaController {
 	}
 	
 	@PutMapping("/update/{id}")
-	public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody ExperienciaDTO experienciaDTO) {
+	public ResponseEntity<?> update(@PathVariable("id") Integer id, @RequestBody ExperienciaDTO experienciaDTO) {
 		if (!experienciaService.existsById(id)) {
 			return new ResponseEntity(new Mensaje("No existe el ID"), HttpStatus.NOT_FOUND);
 		}
