@@ -52,34 +52,46 @@ public class ExperienciaController {
 	ExperienciaService experienciaService;
 
 	@GetMapping("/lista")
-	public ResponseEntity<List<?>> list() {
+	public ResponseEntity<List<ExperienciaEntity>> list() {
 		List<ExperienciaEntity> list = experienciaService.list();
-		return new ResponseEntity<List<?>>(list, HttpStatus.OK);
+		return new ResponseEntity(list, HttpStatus.OK);
 	}
 
 	@GetMapping("/detail/{id}")
 	public ResponseEntity<ExperienciaEntity> getById(@PathVariable("id") int id) {
-		if (!experienciaService.existsById(id))
+		if (!experienciaService.existsById(id)) {
 			return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
+		}
+		
 		ExperienciaEntity experiencia = experienciaService.getOne(id).get();
 		return new ResponseEntity(experiencia, HttpStatus.OK);
 	}
+	
+	@DeleteMapping("/delete/{id}")
+	public ResponseEntity<?> delete(@PathVariable("id") int id) {
+		if (!experienciaService.existsById(id)) {
+			return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
+		}
+		experienciaService.delete(id);
+		return new ResponseEntity(new Mensaje("Experiencia Eliminada"), HttpStatus.OK);
+	}
 
-	@PostMapping("/crear")
+	@PostMapping("/create")
 	public ResponseEntity<?> create(@RequestBody ExperienciaDTO experienciaDTO) {
-		if (StringUtils.isBlank(experienciaDTO.getNombreE()))
+		if (StringUtils.isBlank(experienciaDTO.getNombreE())) {
 			return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
-		if (experienciaService.existsByNombreE(experienciaDTO.getNombreE()))
+		}
+		if (experienciaService.existsByNombreE(experienciaDTO.getNombreE())) {
 			return new ResponseEntity(new Mensaje("Esa experiencia existe"), HttpStatus.BAD_REQUEST);
-
+		}
+		
 		ExperienciaEntity experienciaEntity = new ExperienciaEntity(experienciaDTO.getNombreE(),
 				experienciaDTO.getDescripcionE());
 		experienciaService.save(experienciaEntity);
 
 		return new ResponseEntity(new Mensaje("Experiencia agregada"), HttpStatus.OK);
 	}
-
-
+	
 	@PutMapping("/update/{id}")
 	public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody ExperienciaDTO experienciaDTO) {
 		if (!experienciaService.existsById(id)) {
@@ -101,15 +113,6 @@ public class ExperienciaController {
 		experienciaService.save(experienciaEntity);
 
 		return new ResponseEntity(new Mensaje("Experiencia actualizada"), HttpStatus.OK);
-	}
-
-	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<?> delete(@PathVariable("id") int id) {
-		if (!experienciaService.existsById(id)) {
-			return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
-		}
-		experienciaService.delete(id);
-		return new ResponseEntity(new Mensaje("producto eliminado"), HttpStatus.OK);
 	}
 
 }
