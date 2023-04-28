@@ -48,52 +48,48 @@ public class ExperienciaController {
 	@Autowired
 	ExperienciaService experienciaService;
 
-	@CrossOrigin(origins = {"https://front-end-dino.web.app","http://localhost:4200"})
 	@GetMapping("/lista")
 	public ResponseEntity<List<ExperienciaEntity>> list() {
 		List<ExperienciaEntity> list = experienciaService.list();
-		return new ResponseEntity<List<ExperienciaEntity>>(list, HttpStatus.OK);
+		return new ResponseEntity(list, HttpStatus.OK);
 	}
-
-	@CrossOrigin(origins = {"https://front-end-dino.web.app","http://localhost:4200"})
+	
 	@GetMapping("/detail/{id}")
 	public ResponseEntity<ExperienciaEntity> getById(@PathVariable("id") int id) {
 		if (!experienciaService.existsById(id)) {
-			return new ResponseEntity<ExperienciaEntity>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity(new Mensaje("No existe el ID"), HttpStatus.BAD_REQUEST);
 		}
-		
+
 		ExperienciaEntity experiencia = experienciaService.getOne(id).get();
-		return new ResponseEntity<ExperienciaEntity>(experiencia, HttpStatus.OK);
-	}
-	
-	@CrossOrigin(origins = {"https://front-end-dino.web.app","http://localhost:4200"})
+		return new ResponseEntity(experiencia, HttpStatus.OK);
+	}	
+		
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<?> delete(@PathVariable("id") int id) {
 		if (!experienciaService.existsById(id)) {
-			return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
+			return new ResponseEntity(new Mensaje("No existe el ID"), HttpStatus.NOT_FOUND);
 		}
 		experienciaService.delete(id);
-		return new ResponseEntity(new Mensaje("Experiencia Eliminada"), HttpStatus.OK);
+		return new ResponseEntity(new Mensaje("Experiencia eliminada"), HttpStatus.OK);
 	}
-
-	@CrossOrigin(origins = {"https://front-end-dino.web.app","http://localhost:4200"})
+	
 	@PostMapping("/create")
 	public ResponseEntity<?> create(@RequestBody ExperienciaDTO experienciaDTO) {
 		if (StringUtils.isBlank(experienciaDTO.getNombreE())) {
 			return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
 		}
 		if (experienciaService.existsByNombreE(experienciaDTO.getNombreE())) {
-			return new ResponseEntity(new Mensaje("Esa experiencia existe"), HttpStatus.BAD_REQUEST);
+			return new ResponseEntity(new Mensaje("Esa experiencia ya existe"), HttpStatus.BAD_REQUEST);
 		}
-		
-		ExperienciaEntity experienciaEntity = new ExperienciaEntity(experienciaDTO.getNombreE(),
+
+		ExperienciaEntity experienciaEntity = new ExperienciaEntity(experienciaDTO.getNombreE(), 
 				experienciaDTO.getDescripcionE());
 		experienciaService.save(experienciaEntity);
+		
+		return new ResponseEntity(new Mensaje("Experiencia creada"), HttpStatus.OK);
 
-		return new ResponseEntity(new Mensaje("Experiencia agregada"), HttpStatus.OK);
 	}
 	
-	@CrossOrigin(origins = {"https://front-end-dino.web.app","http://localhost:4200"})
 	@PutMapping("/update/{id}")
 	public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody ExperienciaDTO experienciaDTO) {
 		if (!experienciaService.existsById(id)) {
