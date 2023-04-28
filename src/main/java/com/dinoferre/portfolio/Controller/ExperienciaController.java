@@ -48,12 +48,14 @@ public class ExperienciaController {
 	@Autowired
 	ExperienciaService experienciaService;
 
+	@CrossOrigin(origins = {"https://front-end-dino.web.app","http://localhost:4200"})
 	@GetMapping("/lista")
 	public ResponseEntity<List<ExperienciaEntity>> list() {
 		List<ExperienciaEntity> list = experienciaService.list();
 		return new ResponseEntity<List<ExperienciaEntity>>(list, HttpStatus.OK);
 	}
 
+	@CrossOrigin(origins = {"https://front-end-dino.web.app","http://localhost:4200"})
 	@GetMapping("/detail/{id}")
 	public ResponseEntity<ExperienciaEntity> getById(@PathVariable("id") int id) {
 		if (!experienciaService.existsById(id)) {
@@ -64,6 +66,7 @@ public class ExperienciaController {
 		return new ResponseEntity<ExperienciaEntity>(experiencia, HttpStatus.OK);
 	}
 	
+	@CrossOrigin(origins = {"https://front-end-dino.web.app","http://localhost:4200"})
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<?> delete(@PathVariable("id") int id) {
 		if (!experienciaService.existsById(id)) {
@@ -73,6 +76,7 @@ public class ExperienciaController {
 		return new ResponseEntity(new Mensaje("Experiencia Eliminada"), HttpStatus.OK);
 	}
 
+	@CrossOrigin(origins = {"https://front-end-dino.web.app","http://localhost:4200"})
 	@PostMapping("/create")
 	public ResponseEntity<?> create(@RequestBody ExperienciaDTO experienciaDTO) {
 		if (StringUtils.isBlank(experienciaDTO.getNombreE())) {
@@ -89,6 +93,7 @@ public class ExperienciaController {
 		return new ResponseEntity(new Mensaje("Experiencia agregada"), HttpStatus.OK);
 	}
 	
+	@CrossOrigin(origins = {"https://front-end-dino.web.app","http://localhost:4200"})
 	@PutMapping("/update/{id}")
 	public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody ExperienciaDTO experienciaDTO) {
 		if (!experienciaService.existsById(id)) {
