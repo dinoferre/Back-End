@@ -15,15 +15,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @EnableWebMvc
 @Configuration
-public class WebConfig implements WebMvcConfigurer {
-     
-    @Override
-    public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/explaboral/**") // ruta específica que quiero permitir
-            .allowedOrigins("https://front-end-dino.web.app", "http://localhost:4200")
-            .allowedMethods("GET", "POST", "PUT", "DELETE") // métodos permitidos
-            .allowedHeaders("*") // cabeceras permitidas
-            .allowCredentials(true) // permitir credenciales
-            .maxAge(4000); // tiempo máximo de la caché
+public class WebConfig implements WebMvcConfigurer{
+     @Override
+    public void addCorsMappings(CorsRegistry registry){
+        registry.addMapping("/**");
     }
 }
