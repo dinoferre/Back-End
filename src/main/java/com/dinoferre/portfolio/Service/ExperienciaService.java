@@ -32,7 +32,7 @@ public class ExperienciaService {
 	}
 
     public Optional<ExperienciaEntity> getOne(int id){
-        return iExperienciaRepository.findById((long) id);
+        return iExperienciaRepository.findById(id);
     }
 
 	public Optional<ExperienciaEntity> getByNombreE(String nombreE) {
@@ -43,21 +43,16 @@ public class ExperienciaService {
 		iExperienciaRepository.save(expe);
 	}
 
-	public void delete(int id) {
-		iExperienciaRepository.deleteById((long) id);
-	}
+    public void delete(int id){
+    	iExperienciaRepository.deleteById(id);
+    }
 
-	public boolean existsById(int id) {
-		return iExperienciaRepository.existsById((long) id);
+	public boolean existsById(int id){
+	     return iExperienciaRepository.existsById(id);
 	}
-
 
 	public boolean existsByNombreE(String nombreE) {
 		return iExperienciaRepository.existsByNombreE(nombreE);
-	}
-
-	public Optional<ExperienciaEntity> findById(int id) {
-		return iExperienciaRepository.findById((long) id);
 	}
 
 }

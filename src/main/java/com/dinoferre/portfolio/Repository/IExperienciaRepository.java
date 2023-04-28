@@ -17,7 +17,7 @@ import org.springframework.stereotype.Repository;
 import com.dinoferre.portfolio.Entity.ExperienciaEntity;
 
 @Repository
-public interface IExperienciaRepository extends JpaRepository <ExperienciaEntity, Long>{
+public interface IExperienciaRepository extends JpaRepository <ExperienciaEntity, Integer>{
 	
 	public Optional<ExperienciaEntity> findByNombreE(String nombreE);
 
