@@ -14,6 +14,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.dinoferre.portfolio.Entity.Educacion;
 import com.dinoferre.portfolio.Entity.ExperienciaEntity;
 import com.dinoferre.portfolio.Repository.IExperienciaRepository;
 
@@ -30,9 +31,9 @@ public class ExperienciaService {
 		return iExperienciaRepository.findAll();
 	}
 
-	public Optional<ExperienciaEntity> getOne(long id) {
-		return iExperienciaRepository.findById(id);
-	}
+    public Optional<ExperienciaEntity> getOne(int id){
+        return iExperienciaRepository.findById((long) id);
+    }
 
 	public Optional<ExperienciaEntity> getByNombreE(String nombreE) {
 		return iExperienciaRepository.findByNombreE(nombreE);
@@ -42,12 +43,12 @@ public class ExperienciaService {
 		iExperienciaRepository.save(expe);
 	}
 
-	public void delete(long id) {
-		iExperienciaRepository.deleteById(id);
+	public void delete(int id) {
+		iExperienciaRepository.deleteById((long) id);
 	}
 
-	public boolean existsById(long id) {
-		return iExperienciaRepository.existsById(id);
+	public boolean existsById(int id) {
+		return iExperienciaRepository.existsById((long) id);
 	}
 
 
@@ -55,8 +56,8 @@ public class ExperienciaService {
 		return iExperienciaRepository.existsByNombreE(nombreE);
 	}
 
-	public Optional<ExperienciaEntity> findById(long id) {
-		return iExperienciaRepository.findById(id);
+	public Optional<ExperienciaEntity> findById(int id) {
+		return iExperienciaRepository.findById((long) id);
 	}
 
 }
