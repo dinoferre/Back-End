@@ -20,7 +20,6 @@
 package com.dinoferre.portfolio.Controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,8 +36,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dinoferre.portfolio.DTO.ExperienciaDTO;
-import com.dinoferre.portfolio.DTO.dtoEducacion;
-import com.dinoferre.portfolio.Entity.Educacion;
 import com.dinoferre.portfolio.Entity.ExperienciaEntity;
 import com.dinoferre.portfolio.Security.Controller.Mensaje;
 import com.dinoferre.portfolio.Service.ExperienciaService;
