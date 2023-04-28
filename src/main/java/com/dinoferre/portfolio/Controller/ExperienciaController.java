@@ -42,7 +42,7 @@ import com.dinoferre.portfolio.Service.ExperienciaService;
 
 @RestController
 @RequestMapping("/explaboral")
-@CrossOrigin(origins = { "https://front-end-dino.web.app", "http://localhost:4200" })
+@CrossOrigin(origins = {"https://front-end-dino.web.app","http://localhost:4200"})
 public class ExperienciaController {
 
 	@Autowired
@@ -51,17 +51,17 @@ public class ExperienciaController {
 	@GetMapping("/lista")
 	public ResponseEntity<List<ExperienciaEntity>> list() {
 		List<ExperienciaEntity> list = experienciaService.list();
-		return new ResponseEntity(list, HttpStatus.OK);
+		return new ResponseEntity<List<ExperienciaEntity>>(list, HttpStatus.OK);
 	}
 
 	@GetMapping("/detail/{id}")
 	public ResponseEntity<ExperienciaEntity> getById(@PathVariable("id") int id) {
 		if (!experienciaService.existsById(id)) {
-			return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
+			return new ResponseEntity<ExperienciaEntity>(HttpStatus.NOT_FOUND);
 		}
 		
 		ExperienciaEntity experiencia = experienciaService.getOne(id).get();
-		return new ResponseEntity(experiencia, HttpStatus.OK);
+		return new ResponseEntity<ExperienciaEntity>(experiencia, HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/delete/{id}")
