@@ -19,9 +19,9 @@ Configuré la conexión con MySQL en el archivo `application.properties`.
 Utilizando los siguientes parámetros de configuración:
 
 - `spring.jpa.hibernate.ddl-auto=update`: Esta propiedad indica que Hibernate debe actualizar automáticamente la base de datos cada vez que se inicia la aplicación.
-- `spring.datasource.url=jdbc:mysql://localhost:3306/nombrebdd?useSSL=false&serverTimezone=UTC`: Esta propiedad indica la URL de la base de datos que se va a utilizar. En este caso, se utiliza una base de datos llamada "backend_dinoferre" que está alojada en el localhost y utiliza el puerto 3306. También se indica que no se utiliza SSL y se utiliza el huso horario UTC.
-- `spring.datasource.username=root`: Esta propiedad indica el nombre de usuario que se utiliza para conectarse a la base de datos.
-- `spring.datasource.password=`: Esta propiedad indica la contraseña que se utiliza para conectarse a la base de datos.
+- `spring.datasource.url=jdbc:mysql://localhost:3306/nombrebdd?useSSL=false&serverTimezone=UTC`: Esta propiedad indica la URL de la base de datos que se va a utilizar. En este caso, se utiliza una base de datos llamada "backend_dinoferre" que está alojada en el localhost y utiliza el puerto 3306. También se indica que no se utiliza SSL y se utiliza el huso horario UTC. Al hacer deploy cambio esta direccion por la url de Clever Cloud.
+- `spring.datasource.username=root`: Esta propiedad indica el nombre de usuario que se utiliza para conectarse a la base de datos. Cambio por user de Clever Cloud al hacer deploy.
+- `spring.datasource.password=`: Esta propiedad indica la contraseña que se utiliza para conectarse a la base de datos. Cambio por password de Clever Cloud al hacer deploy.
 - `spring.jpa.database-platform=org.hibernate.dialect.MySQL8Dialect`: Esta propiedad indica el dialecto de la base de datos que se está utilizando. En este caso, se está utilizando MySQL 8.
 
 Generé diferentes paquetes para estructurar el proyecto en el back-end. 
@@ -32,5 +32,13 @@ Los paquetes son los siguientes:
 - `Interface`: Aquí se encuentran las interfaces que definen los métodos que serán implementados en las clases de servicio.
 - `Service`: Aquí se encuentran las clases de servicio que implementan los métodos definidos en las interfaces.
 - `Controller`: Aquí se encuentran las clases de controlador que se comunican con el front-end y los métodos que manejan las peticiones HTTP.
+
+Además, implementé las siguientes funcionalidades en el Back-End:
+
+- Autenticación y autorización mediante el uso de JSON Web Tokens (JWT).
+- Políticas de CORS resueltas para permitir que el Front-End se comunique con el Back-End.
+- Inicio de sesión y autenticación mediante el uso de un formulario de inicio de sesión, donde el usuario ingresa su correo electrónico y contraseña.
+
+Cabe destacar que el Back-End se encuentra alojado en Render y la base de datos en Clever Cloud. Además, el Front-End fue desarrollado en Angular y se encuentra alojado en Firebase.
 
 Dino Ferré 👽
